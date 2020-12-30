@@ -61,7 +61,6 @@ def get_last_update_id(updates):
 
 # %%
 
-
 def send_message(m_text,
                  chat_id,
                  reply_markup=None,
