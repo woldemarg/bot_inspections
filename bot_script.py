@@ -33,7 +33,7 @@ def get_json_from_url(url):
 # %%
 
 def get_updates(offset=None):
-    url = bot_config.BOT_URL + 'getUpdates?timeout=45'
+    url = bot_config.BOT_URL + 'getUpdates?timeout=100'
     if offset:
         url += '&offset={}'.format(offset)
     js = get_json_from_url(url)
