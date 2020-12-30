@@ -2,7 +2,7 @@
 **/.spyproject
 **/.pylint.d
 **/__pycache__
-#**/bot_config.py
+**/bot_config.py
 **/bot_env
 
 # Byte-compiled / optimized / DLL files
