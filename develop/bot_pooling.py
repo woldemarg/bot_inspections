@@ -4,10 +4,9 @@ import math
 import json
 import requests
 import numpy as np
-import bot_config
-import bot_templates
-from bot_db_helper import DBHelper
-
+import develop.bot_config as bot_config
+import develop.bot_templates as bot_templates
+from develop.bot_dbhelper import DBHelper
 
 # %%
 
@@ -88,6 +87,34 @@ def build_custom_keyboard(items, n_cols=2, n_rows=None):
     reply_markup = {'keyboard': keyboard,
                     'one_time_keyboard': True,
                     'resize_keyboard': True}
+    return json.dumps(reply_markup)
+
+
+# %%
+
+def build_digit_keyboard():
+    keyboard = [[{'text': '1', 'callback_data': '1'},
+                 {'text': '2', 'callback_data': '2'},
+                 {'text': '3', 'callback_data': '3'}],
+                [{'text': '4', 'callback_data': '4'},
+                 {'text': '5', 'callback_data': '5'},
+                 {'text': '6', 'callback_data': '6'}],
+                [{'text': '7', 'callback_data': '7'},
+                 {'text': '8', 'callback_data': '8'},
+                 {'text': '9', 'callback_data': '9'}],
+                [{'text': '<', 'callback_data': '<'},
+                 {'text': '0', 'callback_data': '0'},
+                 {'text': 'OK', 'callback_data': 'OK'}]]
+    reply_markup = {'inline_keyboard': keyboard}
+    return json.dumps(reply_markup)
+
+
+# %%
+
+def build_confirm_keyboard():
+    keyboard = [[{'text': 'Так', 'callback_data': 'yes'},
+                 {'text': 'Ні', 'callback_data': 'no'}]]
+    reply_markup = {'inline_keyboard': keyboard}
     return json.dumps(reply_markup)
 
 
@@ -176,10 +203,17 @@ def handle_updates(updates):
                 input_data = callback_query['data']
                 if input_data == 'OK':
                     code = ''.join(str(x) for x in inline_inputs[chat])
-                    send_message((bot_templates.msg_enter_done
-                                  .format(code=code)),
-                                 chat,
-                                 buttons_confirm)
+                    codes = db.get_codes(chat)
+                    if code not in codes:
+                        send_message((bot_templates.msg_enter_done
+                                      .format(code=code)),
+                                     chat,
+                                     buttons_confirm)
+                    else:
+                        send_message((bot_templates.msg_code_already_exists
+                                      .format(code=code)),
+                                     chat,
+                                     buttons_menu)
                 elif input_data == '<':
                     if inline_inputs[chat]:
                         inline_inputs[chat].pop()
@@ -218,7 +252,6 @@ def handle_updates(updates):
                                   .format(limit=bot_config.CODES_LIMIT)),
                                  chat,
                                  buttons_menu)
-                # TODO check if new code already exists in db
                 elif text == bot_templates.main_menu.add_:
                     if len(codes) == bot_config.CODES_LIMIT:
                         codes_list = '\n'.join(codes)
@@ -297,6 +330,6 @@ def main():
 if __name__ == '__main__':
     inline_inputs = {}
     buttons_menu = build_custom_keyboard(bot_templates.main_menu)
-    buttons_confirm = bot_templates.build_confirm_keyboard()
-    buttons_digit = bot_templates.build_digit_keyboard()
+    buttons_confirm = build_confirm_keyboard()
+    buttons_digit = build_digit_keyboard()
     main()
