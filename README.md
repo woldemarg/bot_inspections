@@ -32,6 +32,7 @@ ___
 * [database in docker container](https://wkrzywiec.medium.com/database-in-a-docker-container-how-to-start-and-whats-it-about-5e3ceea77e50)
 * [docker compose with python and postgre](https://dev.to/stefanopassador/docker-compose-with-python-and-posgresql-33kk)
 * [postgre with heroku](https://medium.com/better-programming/how-to-containerize-and-deploy-apps-with-docker-and-heroku-b1c49e5bc070)
+* [connect to heroku postgres in python](https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-python)
 
 ___
 
