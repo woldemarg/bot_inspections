@@ -1,0 +1,25 @@
+version: "3"
+services:
+    db:
+        image: postgres:latest
+        environment:
+            # To avoid the following error:
+            #
+            #   Error: Database is uninitialized and superuser password is not
+            #   specified.  You must specify POSTGRES_PASSWORD for the superuser. Use
+            #   "-e POSTGRES_PASSWORD=password" to set it in "docker run".
+            #
+            #   You may also use POSTGRES_HOST_AUTH_METHOD=trust to allow all
+            #   connections without a password. This is *not* recommended. See
+            #   PostgreSQL documentation about "trust"
+            POSTGRES_HOST_AUTH_METHOD: trust
+        volumes:
+            - ./bot_db
+    web:
+        build: .
+        ports:
+            - '8080:5000'
+        volumes:
+            - ./bot_app
+        depends_on:
+            - db

@@ -25,7 +25,7 @@ async def webhook_handler(request: Request):
 # %%
 
 PORT = int(os.environ.get('PORT', 5000))
-# HOOK = 'https://d75a4327ad79.ngrok.io'  # for local development
+# HOOK = 'https://1f679d45a60f.ngrok.io'  # for local development
 HOOK = 'https://sleepy-woodland-05300.herokuapp.com/'
 
 if __name__ == '__main__':

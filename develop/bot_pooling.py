@@ -4,9 +4,9 @@ import math
 import json
 import requests
 import numpy as np
-import develop.bot_config as bot_config
-import develop.bot_templates as bot_templates
-from develop.bot_dbhelper import DBHelper
+import bot_config
+import bot_templates
+from bot_dbhelper import DBHelper
 
 # %%
 
