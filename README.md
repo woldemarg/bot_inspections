@@ -4,7 +4,7 @@
 Перевірки бізнесу за даними іnspections.gov.ua.
 1. Редагування (додання/видалення) персонального переліку кодів ЄДРПОУ/ІПН.
 3. Отримання календаря перевірок за кодами у переліку.<br /><br />
-![](https://d3dehtdmp2rwcw.cloudfront.net/ms_317570/LwBjiPNGJnPuLD2QrYSW3HnK1lqd4n/2020_12_30_18_18_44_trim_00-00_00-56.gif?Expires=1632918600&Signature=tHX9u6sd1wo0B6YN2DGI4X4OnNNX1fjCujh9ms3-tEVoSzlnD6XIEYwrH-K3bTTdlTq472UEnrDFnOpUyMDabceXV7c2-5gBKJL97iiNVPusfeI0~km8IO1hcrsUqZkHb769P1IFJkbtV7~Ag3v73FdpZSI3vY0BOY~DMC2RlwsmwAqEIOJJZF0IzB2~5m7839iLi6GoQMZShtj8xulJM8~5wtutDlry8eGurpFq0T~A5r9DfG0Qh9GVOKinLH57FS7stgVjbdVVHIKoE9op1Z~Hu7PcgluSMXGLle-cUhEGlSeX2jBtvkCS0UvKQxNTaXWNMT-Guk8vMuhEfFYRVg__&Key-Pair-Id=APKAJBCGYQYURKHBGCOA)
+![](2020_12_30_18_18_44_trim_00-00_00-56.gif)
 
 ### Майбутній функціонал:
 * Повідомлення із нагадуваннями напередодні перевірок
